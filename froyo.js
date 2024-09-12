@@ -5,13 +5,18 @@ counter:[0,0,0],
 checkout:"",//this string holds the message for the user's order. The function search will take in the order and parse for flavors.
 };
 
+const message="Hello and Welcome! Please enter the flavors of frozen yogurt that you want. We have coffee, strawberry and vanilla."
+let input=prompt(message);
+
+froyo.checkout=input;
+
+alert(froyo.checkout);
+
 function readOrder(order){let message="You have ordered " + order.counter[0] + " coffee, " + order.counter[2] + " strawberry " + order.counter[2] + " vanilla froyos.";
     return message;   
 }
 
 
-froyo.checkout="coffee, vanilla, vanilla, coffee, coffee";
-alert(froyo.checkout);
 
 function search(bill){
 const order=bill.checkout.split(", ");
@@ -21,8 +26,9 @@ for (const flavors in order) {
     if (order[flavors]==="vanilla") froyo.counter[2]++;
     }
 } 
+
+
 search(froyo);
 
-alert(froyo.counter[0]);
 
 alert(readOrder(froyo));
