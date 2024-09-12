@@ -9,16 +9,20 @@ function readOrder(order){let message="You have ordered " + order.counter[0] + "
     return message;   
 }
 
-alert(readOrder(froyo));
-froyo.checkout="coffee, coffee, coffee";
 
+froyo.checkout="coffee, vanilla, vanilla, coffee, coffee";
+alert(froyo.checkout);
 
-function search(order){
-    /*const bill=order.checkout; for (let i=0; i<bill.length; i++) if (bill.checkout[i]==="coffee") */ order.counter[0]++; 
-}
+function search(bill){
+const order=bill.checkout.split(", ");
+for (const flavors in order) {
+    if (order[flavors]==="coffee") froyo.counter[0]++;
+    if (order[flavors]==="strawberry") froyo.counter[1]++;
+    if (order[flavors]==="vanilla") froyo.counter[2]++;
+    }
+} 
+search(froyo);
 
-//search(froyo);
-
-/*alert(froyo.checkout);*/
-froyo.counter[0]++;
 alert(froyo.counter[0]);
+
+alert(readOrder(froyo));
